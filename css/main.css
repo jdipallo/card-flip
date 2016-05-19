@@ -8,10 +8,12 @@
 		-webkit-backface-visibility
 */
 
+/* give some perspective in the 3D space */
 .portfolio-item {
 	perspective: 500px;
 }
 
+/* give our front and back some common properties */
 .front, .back {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -19,16 +21,21 @@
 	transform-style: preserve-3d;
 }
 
+/* intially rotate the back card so it is invisible (because of the above
+backface-visibility) and importantly, set it up so when we rotate back, the
+back is facing the proper direction */
 .back {
 	transform: rotateY(-180deg);
 	position: relative;
 	top: -200px;
 }
 
+/* pretty self explanatory */
 .portfolio-item:hover .front {
 	transform: rotateY(180deg);
 }
 
+/* rotate back to 0deg since remember, we rotate the back initally to 180 */
 .portfolio-item:hover .back {
 	transform: rotateY(0deg);
 }
